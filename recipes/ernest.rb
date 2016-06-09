@@ -98,4 +98,3 @@ template '/usr/local/bin/ernestctl' do # ~FC033
     vcloud: node['ernest']['services']['vcloud']
   )
 end
-

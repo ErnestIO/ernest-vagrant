@@ -15,3 +15,4 @@ uat/*
 .kitchen.local.yml
 *.box
 solo.json
+files/id_rsa.erb

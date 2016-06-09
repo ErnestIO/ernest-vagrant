@@ -17,6 +17,7 @@ cookbook_file 'id_rsa.erb' do
   mode 0400
   path "#{home_dir}/.ssh/id_rsa"
   action :create_if_missing
+  ignore_failure true
 end
 
 bash 'ssh_known_hosts' do

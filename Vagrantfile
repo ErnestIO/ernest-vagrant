@@ -24,10 +24,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provision 'chef_solo' do |chef|
-    # Due a bug on chef core: https://github.com/chef/chef/issues/4948
-    # I'm using the stable channel as a workaround.
-    chef.channel = 'stable'
-    chef.version = '12.8.1'
     # chef.log_level = :debug
     chef.add_recipe 'ernest-vagrant'
     #     chef.json = {

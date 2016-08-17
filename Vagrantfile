@@ -26,15 +26,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision 'chef_solo' do |chef|
     # chef.log_level = :debug
     chef.add_recipe 'ernest-vagrant'
-    #  chef.json = {
-    #    "ernest" => {
-    #      "version" => "develop",
-    #      "services" => {
-    #       "gpb" => {
-    #        "workflow-manager" => {org: "ernestio", version: "branch-name"},
-    #       }
-    #      }
-    #    }
-    #  }
+    chef.json = {
+      'ernest' => {
+        'version' => 'develop',
+        'services' => {
+          'gpb' => {
+            'api-gateway' => { org: 'ernestio', version: 'groups' },
+            'group-store' => { org: 'ernestio', version: 'groups' },
+            'user-store' => { org: 'ernestio', version: 'groups' },
+            'datacenter-store' => { org: 'ernestio', version: 'groups' }
+          }
+        }
+      }
+    }
   end
 end

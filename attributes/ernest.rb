@@ -64,6 +64,7 @@ default['ernest']['services']['gpb'] = {
   'elb-updater-aws-connector' => { org: 'ernestio', version: node['ernest']['version'] },
   'elb-deleter-aws-connector' => { org: 'ernestio', version: node['ernest']['version'] },
   's3-all-aws-connector' => { org: 'ernestio', version: node['ernest']['version'] },
+  'rds-all-aws-connector' => { org: 'ernestio', version: node['ernest']['version'] },
   'route53-all-aws-connector' => { org: 'ernestio', version: node['ernest']['version'] }
 }
 

@@ -4,7 +4,7 @@
 
 deps = 'make deps'
 if %w(dev test).include? node['ernest']['environment']
-  deps = 'make dev-deps || true && make deps'
+  deps = 'make deps'
 end
 
 repo_version = node['ernest']['versions']['config-store']

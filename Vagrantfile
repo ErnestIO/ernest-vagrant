@@ -9,8 +9,7 @@ VAGRANTFILE_API_VERSION = '2'.freeze
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.forward_agent = true
 
-  config.vm.box = 'ubuntu/wily64'
-  # config.vm.box = 'R3Labs/ernest'
+  config.vm.box = 'dazraf/wily64-base'
 
   config.vm.hostname = 'ernest.local'
   config.vm.network 'private_network', ip: '10.50.1.11'
@@ -30,20 +29,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe 'ernest-vagrant'
     chef.json = {
       'ernest' => {
-        'version' => 'develop',
-=begin
-        'services' => {
-          'gpb' => {
-            'workflow-manager' => { org: 'ernestio', version: 'vpc' },
-            'aws-definition-mapper' => { org: 'ernestio', version: 'vpc' },
-            'all-all-fake-connector' => { org: 'ernestio', version: 'vpc' },
-            'firewall-adapter' => { org: 'ernestio', version: 'vpc' },
-            'network-adapter' => { org: 'ernestio', version: 'vpc' },
-            'nat-adapter' => { org: 'ernestio', version: 'vpc' },
-            'instance-adapter' => { org: 'ernestio', version: 'vpc' }
-          }
-        }
-=end
+        'version' => 'master'
       }
     }
   end

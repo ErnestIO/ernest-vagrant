@@ -45,6 +45,7 @@ default['ernest']['services']['gpb'] = {
   'user-store' => { org: 'ernestio', version: node['ernest']['version'] },
   'datacenter-store' =>  { org: 'ernestio', version: node['ernest']['version'] },
   'service-store' => { org: 'ernestio', version: node['ernest']['version'] },
+  'usage-store' => { org: 'ernestio', version: node['ernest']['version'] },
   'api-gateway' => { org: 'ernestio', version: node['ernest']['version'] },
   'vcloud-definition-mapper' => { org: 'ernestio', version: node['ernest']['version'] },
   'aws-definition-mapper' => { org: 'ernestio', version: node['ernest']['version'] },

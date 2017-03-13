@@ -10,7 +10,8 @@ default['postgres']['server']['root_password'] = node['secrets']['postgres']['ro
 tables = %w(users
             groups
             datacenters
-            services)
+            services,
+            usage)
 
 default['postgres']['database']['names'] = tables # tables.map{ |t| "%{env}_#{t}" }
 default['postgres']['database']['user'] = node['secrets']['postgres']['user']

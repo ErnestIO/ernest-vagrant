@@ -32,12 +32,8 @@ default['ernest']['application']['user_password'] = node['secrets']['ernest']['a
 default['ernest']['application']['user_salt']     = node['secrets']['ernest']['admin_salt']
 
 default['ernest']['services']['gpb'] = {
-  'execution-builder' => { org: 'ernestio', version: node['ernest']['version'] },
-  'generic-builder' => { org: 'ernestio', version: node['ernest']['version'] },
-  'workflow-manager' => { org: 'ernestio', version: node['ernest']['version'] },
+  'scheduler' => { org: 'ernestio', version: node['ernest']['version'] },
   'definition-mapper' => { org: 'ernestio', version: node['ernest']['version'] },
-  'execution-adapter' => { org: 'ernestio', version: node['ernest']['version'] },
-  'generic-adapter' => { org: 'ernestio', version: node['ernest']['version'] },
   'all-all-fake-connector' => { org: 'ernestio', version: node['ernest']['version'] },
   'monit' => { org: 'ernestio', version: node['ernest']['version'] },
   'logger' => { org: 'ernestio', version: node['ernest']['version'] },
@@ -47,8 +43,6 @@ default['ernest']['services']['gpb'] = {
   'service-store' => { org: 'ernestio', version: node['ernest']['version'] },
   'usage-store' => { org: 'ernestio', version: node['ernest']['version'] },
   'api-gateway' => { org: 'ernestio', version: node['ernest']['version'] },
-  'vcloud-definition-mapper' => { org: 'ernestio', version: node['ernest']['version'] },
-  'aws-definition-mapper' => { org: 'ernestio', version: node['ernest']['version'] },
   'all-all-aws-connector' => { org: 'ernestio', version: node['ernest']['version'] }
 }
 
@@ -56,7 +50,6 @@ default['ernest']['services']['vcloud'] = {
   'firewall-creator-vcloud-connector' => { org: 'ernestio', version: node['ernest']['version'] },
   'instance-creator-vcloud-connector' => { org: 'ernestio', version: node['ernest']['version'] },
   'instance-updater-vcloud-connector' => { org: 'ernestio', version: node['ernest']['version'] },
-  'execution-run-salt-connector' => { org: 'ernestio', version: node['ernest']['version'] },
   'nat-creator-vcloud-connector' => { org: 'ernestio', version: node['ernest']['version'] },
   'network-creator-vcloud-connector' => { org: 'ernestio', version: node['ernest']['version'] },
   'router-creator-vcloud-connector' => { org: 'ernestio', version: node['ernest']['version'] },
@@ -76,4 +69,4 @@ default['ernest']['connectors']['firewalls'] = %w(fake vcloud vcloud-fake aws aw
 default['ernest']['connectors']['nats'] = %w(fake vcloud vcloud-fake aws aws-fake)
 default['ernest']['connectors']['executions'] = %w(fake salt)
 default['ernest']['connectors']['elbs'] = %w(fake aws aws-fake)
-default['ernest']['connectors_list'] = 'nat.create.aws,nat.update.aws,nat.delete.aws,network.create.aws,network.delete.aws,route53.create.aws,route53.delete.aws,route53.update.aws,s3.create.aws,s3.update.aws,s3.delete.aws,elb.create.aws,elb.delete.aws,elb.update.aws,vpc.create.aws,vpc.delete.aws,instance.delete.aws,instance.update.aws,instance.create.aws,firewall.create.aws,firewall.update.aws,firewall.delete.aws,ebs.create.aws,ebs.update.aws,ebs.delete.aws,nats.find.aws,networks.find.aws,route53s.find.aws,s3s.find.aws,elbs.find.aws,vpcs.find.aws,instances.find.aws,firewalls.find.aws,ebs_volumes.find.aws,rds_clusters.find.aws,rds_instances.find.aws'
+default['ernest']['connectors_list'] = 'nat.create.aws,nat.update.aws,nat.delete.aws,network.create.aws,network.delete.aws,route53.create.aws,route53.delete.aws,route53.update.aws,s3.create.aws,s3.update.aws,s3.delete.aws,elb.create.aws,elb.delete.aws,elb.update.aws,vpc.create.aws,vpc.delete.aws,instance.delete.aws,instance.update.aws,instance.create.aws,firewall.create.aws,firewall.update.aws,firewall.delete.aws,ebs_volume.create.aws,ebs_volume.delete.aws,rds_cluster.create.aws,rds_cluster.update.aws,rds_cluster.delete.aws,rds_instance.create.aws,rds_instance.update.aws,rds_instance.delete.aws,nats.find.aws,networks.find.aws,route53s.find.aws,s3s.find.aws,elbs.find.aws,vpcs.find.aws,instances.find.aws,firewalls.find.aws,ebs_volumes.find.aws,rds_clusters.find.aws,rds_instances.find.aws,internet_gateway.create.aws,internet_gateway.delete.aws,internet_gateways.find.aws'

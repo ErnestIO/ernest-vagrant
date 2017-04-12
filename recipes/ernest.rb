@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -25,8 +26,8 @@ node['ernest']['services']['vcloud'].each do |microservice, _attrs|
   end
 
   service microservice do
-    supports [:start, :stop, :restart]
-    action [:enable, :start]
+    supports %i[start stop restart]
+    action %i[enable start]
   end
 end
 
@@ -61,8 +62,8 @@ node['ernest']['services']['gpb'].each do |microservice, attrs|
   end
 
   service microservice do
-    supports [:start, :stop, :restart]
-    action [:enable, :start]
+    supports %i[start stop restart]
+    action %i[enable start]
   end
 end
 

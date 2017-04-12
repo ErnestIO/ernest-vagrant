@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -25,11 +26,11 @@ template '/lib/systemd/system/nats.service' do # ~FC033
 end
 
 service 'nats' do
-  supports [:start, :stop, :restart]
-  action [:enable, :start]
+  supports %i[start stop restart]
+  action %i[enable start]
 end
 
-if %w(test dev).include? node['ernest']['environment']
+if %w[test dev].include? node['ernest']['environment']
   template '/lib/systemd/system/nats-test.service' do # ~FC033
     source 'gnatsd.service.erb'
     owner 'root'
@@ -45,7 +46,7 @@ if %w(test dev).include? node['ernest']['environment']
   end
 
   service 'nats-test' do
-    supports [:start, :stop, :restart]
-    action [:enable, :start]
+    supports %i[start stop restart]
+    action %i[enable start]
   end
 end
